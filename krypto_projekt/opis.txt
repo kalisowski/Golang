@@ -1,0 +1,9 @@
+# Kryptografia
+
+Autor - Kamil Lisowski
+
+program uruchamiamy poleceniem go run cezar.go [flagi] (z poziomu folderu lab01)
+
+wyniki przechowywane są w folderze data
+
+wymaga do uruchomienia języka Golang
