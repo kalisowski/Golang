@@ -1,0 +1,7 @@
+# Komentarz
+[ ] todo
+[X] done
+[-] odrzucone
+[+] test
+[ ] Dokonczyc kod
+[ ] Wypić piwo
