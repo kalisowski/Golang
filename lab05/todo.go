@@ -34,8 +34,8 @@ func main() {
 		add()
 	case "remove":
 		remove(data)
-		// case "done":
-		// done()
+	case "change":
+		change(data)
 	case "exit":
 		return
 	default:
@@ -74,11 +74,11 @@ func add() {
 	line := "[ ] " + note
 	fileOperations.AppendToFile("todo.txt", line)
 }
+
 func remove(res []string) {
 	fmt.Println("Podaj numer pozycji do usunięcia: ")
 	var index int
 	fmt.Scanln(&index)
-	println(len(res))
 	if index < 0 || index > len(res)-1 {
 		log.Fatalln("Podano nieprawidłowy numer linii")
 	}
@@ -86,8 +86,26 @@ func remove(res []string) {
 	fmt.Println("Usunięto: ", removed)
 }
 
-func done() {
-	fmt.Println("done")
+func change(res []string) {
+	fmt.Println("Podaj numer notatki do zmiany: ")
+	var index int
+	fmt.Scanln(&index)
+	if index < 0 || index > len(res)-1 {
+		log.Fatalln("Niepoprawny numer notatki")
+	}
+
+	fmt.Println("Podaj nowy status ([X] - wykonane, [ ] - do zrobienia): ")
+	reader := bufio.NewReader(os.Stdin)
+	status, _ := reader.ReadString('\n')
+	status = strings.TrimSpace(status)
+	if status != "[ ]" && status != "[X]" {
+		log.Fatalln("Niepoprawny format statusu")
+	}
+
+	res[index] = status + res[index][3:]
+	data := strings.Join(res, "\n")
+	fileOperations.WriteToFile("todo.txt", data)
+	fmt.Println("Status notatki został zmieniony")
 }
 
 var colorCodes = struct {
