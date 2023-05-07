@@ -96,7 +96,7 @@ func change(res []string) {
 
 	fmt.Println("Podaj nowy status ([X] - wykonane, [ ] - do zrobienia): ")
 	reader := bufio.NewReader(os.Stdin)
-	status, _ := reader.ReadString('\n')
+	status, _ := reader.ReadString('\i69n')
 	status = strings.TrimSpace(status)
 	if status != "[ ]" && status != "[X]" {
 		log.Fatalln("Niepoprawny format statusu")

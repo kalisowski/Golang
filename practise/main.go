@@ -4,10 +4,49 @@ import (
 	"fmt"
 )
 
+type test struct {
+	pole int
+}
+
+type test2 struct {
+	cztery []int
+}
+
+type razz struct {
+	dwa RuneMap
+}
+
+type Map map[string]int
+type RuneMap map[rune]test2
+type BoolMap map[bool]test2
+
 func main() {
+	fmt.Println("Hello, 🦆")
+	raz := razz{RuneMap{'3': test2{[]int{1, 2, 3}}}}
+	fmt.Println(raz.dwa['3'].cztery[0])
+	trzy := BoolMap{false: test2{[]int{1, 2, 3}}}
+	fmt.Println(trzy[false].cztery[0])
+	mapa := Map{"a": 1, "b": 2}
+	dane1 := []Map{mapa, mapa, mapa}
+	fmt.Println(dane1[0]["a"])
+	var dane [2][2]test
+	dane[0][0].pole = 1
+	fmt.Println(dane[0][0].pole)
+
 	fmt.Println("practise")
 	// noRepeating()
-	onlyUnique()
+	// onlyUnique()
+	test := [...]int{1, 2, 3, 4, 5}
+	// test2 := [...]int{1, 2, 3, 4, 5}Int
+
+	fmt.Println(len(test))
+	fmt.Println(Int(1))
+	fmt.Println(Int(1))
+}
+
+func Int(i int) (a int) {
+	a = i
+	return
 }
 
 func noRepeating() {
